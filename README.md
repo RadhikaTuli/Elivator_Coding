@@ -96,8 +96,9 @@ def fetchClosestDispatcher(elivators,action,zones):
             closestElivator=elivator
      return closestElivator
  
- 
+``` 
  Method to check if the capacity of the elivator is full or not
+```
  def checkDispatcherCapcity(elivator):
     count=int(elivator[capacity].split('#')[1])
     if count<=6:
@@ -106,8 +107,9 @@ def fetchClosestDispatcher(elivators,action,zones):
     else:
           elivator[capacity]="True#"+str(count)
   
-  
-  function that will uptdate the elivator details once it is selected
+  ```
+ function that will uptdate the elivator details once it is selected
+  ```
   def updateDispatcherDetails(elivator):
      for action in actions:
         if elivator[elivatorID] in action:
