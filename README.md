@@ -43,21 +43,75 @@ elivators=[
   isMoving=False},.........
 ]
 
-         
-  
-    
- 
-  
+
+**Algorithm**
+When the button is pressed it will send information to the dispatcher notifying current floor, destination floor, direction. The action is set in the queue and then it will search for the nearest dispatcher/elevator. 
+actions=[action1,action2......]
+
+when button is pressed from inside the elivators value has to be set. That elivator's value is set which is going to that location by checking the elivator selected from action:
+def dispatcher(elivator,currPosition,destinationPosition):
+        elivator[destinationFloor]=destinationPosition
+        elivator[currentFloor]= floor from which it picks the passengers
+        if 'True' in elivator[capacity]:
+            if there is an action on this elivator ID then remove it from the actions list and assign it to some other elivator in the same zone.
             
-         
+The same dispatcher function can be used when the button is pressed from outside.In that scenario the distantionfloor will be the one on which the button has been pressed and currentfloor will be none.
 
+
+def findDispatcher(eliavtors,actions):
+    for action in actions:
+      closestDispatcher=fetchClosestDispatcher(elivators,action)
+      closestDispatcher[destinationfloor]=action[floorPosition]
+      if closestDispatcher[isMoving]=='False' and elivator[state]=='stop':
+          elivator[isMoving]='True'
+          elivator[state]=action[direction]
+      action[elivatorSelected] = elivator[elivatorID]
+
+To select the closest elivator we have to consider the following secnarios:
+1. The elivator that works in that zone i.e which set of elivators work on those floors.
+2. If the elivator is going in the same direction as the request has been made.
+3. If the elivator is idle
+4. Difference in the floor where the action has been taken and where the elivator is currently.
+5. If the assigned elivator is full the reassign it to some other elivator of that zone.
+
+def fetchClosestDispatcher(elivators,action,zones):
+    closestElivator=elivators[0]
+    floorDiffMini= sys.maxsize
+    for elivator in elivators:
+        checkEilvatorCapcity(elivator)
+        if 'True' in elivator[capacity]:
+            continue
+        if zones[elivator[zone]] == matches the floor from which action has been pressed.   
+            if elivator[state]== action[direction] or elivator[state]== 'stop' and elivator[isMoving]='False':
+                if elivator[state]=='up' and action[direction] =='up':
+                    floorDiff= action[floorPosition] - elivator[currentFloor]
+                elif  elivator[state]=='down' and action[direction] =='down':
+                    floorDiff= elivator[currentFloor] - action[floorPosition]
+                else:
+                    time.sleep(60) till elivator direction changes or elivator gets empty
+        if floordiff< floorDiffMini:
+            floorDiffMini=floorDiff
+            closestElivator=elivator
+     return closestElivator
+ 
+ 
+ Method to check if the capacity of the elivator is full or not
+ def checkDispatcherCapcity(elivator):
+    count=int(elivator[capacity].split('#')[1])
+    if count<=6:
+          count=count+1
+          elivator[capacity]="False#"+str(count)
+    else:
+          elivator[capacity]="True#"+str(count)
   
   
-
-
-
-
-  
-
-
-
+  function that will uptdate the elivator details once it is selected
+  def updateDispatcherDetails(elivator):
+     for action in actions:
+        if elivator[elivatorID] in action:
+              checkDispatcherCapcity(elivator)
+               elivator[state]=action[direction]
+               elivator[isMoving]='True'
+        else:
+              elivator[state]='stop'
+              elivator[isMoving]='False'
