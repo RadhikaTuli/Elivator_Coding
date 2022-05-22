@@ -1,5 +1,5 @@
 # Elivator_Coding
-**Problem Statement :** 
+# **Problem Statement :** 
 
 Consider we are building an algorithm for an elevator system for a highrise building like Burj Khalifa. Typically these buildings would have a considerable number of floors / stops. E.g. Burj Khalifa has 165 but let us assume that the number can go upto 200.
 
@@ -12,7 +12,7 @@ In the mornings a lot of people would be going to their respective offices [8am 
 In the evenings a lot of people would be going down so the load will be high but it will be random [5pm - 9pm]
 Sometimes when a lift arrives it is full. We would like to avoid that situation also.
 
-**Solution**
+ # **Solution**
 When the button is pressed for the elivator it can be pressed from two location either inside or outside. Inside function can have series of button according to floor number and outside there will be only two button up or down. Essentially the direction of elevator will be either up or down at a moment.
 
 For handling the issue of peek timings like in the morning from 8am - 9am or evening 5pm - 9pm we can divide the floors into zone or odd/even bundle and assign particular number of elivators for each set of floors. Example if there are 100 floors and 20 elevators then 4-5 elevators will work for zone1 which will contain 20 floors and so on.
@@ -44,7 +44,7 @@ elivators=[
 ]
 
 
-**Algorithm**
+ # **Algorithm**
 When the button is pressed it will send information to the dispatcher notifying current floor, destination floor, direction. The action is set in the queue and then it will search for the nearest dispatcher/elevator. 
 actions=[action1,action2......]
 
