@@ -19,9 +19,9 @@ For handling the issue of peek timings like in the morning from 8am - 9am or eve
 
 When button is pressed that Action will have items like floor number/position , direction in which the call has been made, zone in which that floor is , the number of the elivator that is selected. All these item can be placed in list or a dictonary with key value pair.
 
-elivator=[elivatorID,currentfloor,destinationFloor,state,capacity,zone,isMoving]
-action=[floorPosition,direction,elivatorSelected,zone]
-zones={'zone1':'f1-f20','zone2':'f21-f40'......}
+##### elivator=[elivatorID,currentfloor,destinationFloor,state,capacity,zone,isMoving]
+##### action=[floorPosition,direction,elivatorSelected,zone]
+##### zones={'zone1':'f1-f20','zone2':'f21-f40'......}
 
 each elivator will work for particular set of floors which are part of that particular zone.
 
