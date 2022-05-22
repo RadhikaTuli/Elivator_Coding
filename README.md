@@ -57,9 +57,9 @@ def dispatcher(elivator,currPosition,destinationPosition):
         elivator[currentFloor]= floor from which it picks the passengers
         if 'True' in elivator[capacity]:
             if there is an action on this elivator ID then remove it from the actions list and assign it to some other elivator in the same zone.
-            
+```            
 The same dispatcher function can be used when the button is pressed from outside.In that scenario the distantionfloor will be the one on which the button has been pressed and currentfloor will be none.
-
+```
 def findDispatcher(eliavtors,actions):
     for action in actions:
       closestDispatcher=fetchClosestDispatcher(elivators,action)
