@@ -53,10 +53,11 @@ actions=[action1,action2......]
 when button is pressed from inside the elevators value has to be set. That elevator's value is set which is going to that location by checking the elevator selected from action:
 ```
 def dispatcher(elevator,currPosition,destinationPosition):
-        elevator[destinationFloor]=destinationPosition
-        elevator[currentFloor]= floor from which it picks the passengers
-        if 'True' in elivator[capacity]:
-            if there is an action on this elevator ID then remove it from the actions list and assign it to some other elevator in the same zone.
+        if action[elevatorSelected] == elevator[elevatorID]:
+           elevator[destinationFloor]=destinationPosition
+           elevator[currentFloor]= floor from which it picks the passengers
+           if 'True' in elivator[capacity]:
+               actions.remove(action)
 ```            
 The same dispatcher function can be used when the button is pressed from outside.In that scenario the distantionfloor will be the one on which the button has been pressed and currentfloor will be none.
 ```
