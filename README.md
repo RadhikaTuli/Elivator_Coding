@@ -17,7 +17,7 @@ When the button is pressed for the elevator it can be pressed from two location 
 
 For handling the issue of peek timings like in the morning from 8am - 9am or evening 5pm - 9pm we can divide the floors into zone or odd/even bundle and assign particular number of elevators for each set of floors. Example if there are 100 floors and 20 elevators then 4-5 elevators will work for zone1 which will contain 20 floors and so on.
 
-When button is pressed that Action will have items like floor number/position , direction in which the call has been made, zone in which that floor is , the number of the elevator that is selected. All these item can be placed in list or a dictonary with key value pair.
+When button is pressed that Action will have items like floor number/position , direction in which the call has been made, zone in which that floor is , the number of the elevator that is selected. All these item can be placed in list or a dictonary with key value pair. For zones Regex can be applie dto define the scope of floors
 ```
 elevator=[elevatorID,currentfloor,destinationFloor,state,capacity,zone,isMoving]
 action=[floorPosition,direction,elivatorSelected,zone]
