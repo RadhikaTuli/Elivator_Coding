@@ -90,7 +90,8 @@ def fetchClosestDispatcher(elevators,action,zones):
                 elif  elevator[state]=='down' and action[direction] =='down':
                     floorDiff= elevator[currentFloor] - action[floorPosition]
                 else:
-                    time.sleep(60) till elevator direction changes or elevator gets empty
+                 while (elevator[state] != action[direction]) or (elevator[state]== 'stop' and elevator[isMoving]='False'):
+                      time.sleep(60) 
         if floordiff< floorDiffMini:
             floorDiffMini=floorDiff
             closestElevator=elevator
