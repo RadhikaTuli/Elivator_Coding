@@ -120,3 +120,5 @@ def fetchClosestDispatcher(elevators,action,zones):
               elevator[state]='stop'
               elevator[isMoving]='False'
 ```
+# Area Of Improvments
+This is just the basic algo structure and not the complete program. It will require many more functions like open or close the door of elivator, Deactivate an elivator in case it is under mainatenace, repair of elivator, validating the floor to which elivator should go is in range of the zone the elivators work for or not.
