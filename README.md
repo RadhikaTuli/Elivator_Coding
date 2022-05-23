@@ -66,8 +66,7 @@ def findDispatcher(eleavtors,actions):
       closestDispatcher=fetchClosestDispatcher(elevators,action)
       closestDispatcher[destinationfloor]=action[floorPosition]
       if closestDispatcher[isMoving]=='False' and elevator[state]=='stop':
-          elevator[isMoving]='True'
-          elevator[state]=action[direction]
+          updateDispatcherDetails(closestDispatcher,action)
       action[elivatorSelected] = elevator[elevatorID]
 ```
 To select the closest elevator we have to consider the following secnarios:
